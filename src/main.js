@@ -7,8 +7,13 @@ import App from './App'
 import router from './router'
 // 导入全局样式
 import './assets/css/global.css'
+import axios from 'axios'
+import qs from 'qs';
 
+axios.defaults.baseURL = 'http://127.0.0.1:8082'
 
+Vue.prototype.$http = axios
+Vue.prototype.$qs = qs
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
