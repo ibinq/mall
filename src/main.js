@@ -11,7 +11,10 @@ import axios from 'axios'
 import qs from 'qs';
 
 axios.defaults.baseURL = 'http://127.0.0.1:8082'
-
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
 Vue.prototype.$http = axios
 Vue.prototype.$qs = qs
 
